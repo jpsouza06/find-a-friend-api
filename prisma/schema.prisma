@@ -26,9 +26,9 @@ model Org {
 }
 
 model Pet {
-  id           String  @id @default(uuid())
+  id           String @id @default(uuid())
   name         String
-  about        String?
+  about        String
   age          String
   size         String
   independence String
@@ -36,8 +36,8 @@ model Pet {
   photos      Photos[]
   requirement Requirement[]
 
-  Org    Org?    @relation(fields: [org_id], references: [id])
-  org_id String?
+  Org    Org    @relation(fields: [org_id], references: [id])
+  org_id String
 
   @@map("pets")
 }
@@ -48,8 +48,8 @@ model Photos {
   width  Int
   url    String
 
-  Pet    Pet?    @relation(fields: [pet_id], references: [id])
-  pet_id String?
+  Pet    Pet    @relation(fields: [pet_id], references: [id])
+  pet_id String
 
   @@map("photos")
 }
@@ -58,8 +58,8 @@ model Requirement {
   id          String @id @default(uuid())
   requirement String
 
-  Pet    Pet?    @relation(fields: [pet_id], references: [id])
-  pet_id String?
+  Pet    Pet    @relation(fields: [pet_id], references: [id])
+  pet_id String
 
   @@map("requirements")
 }
