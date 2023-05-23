@@ -31,6 +31,7 @@ model Pet {
   about        String
   age          String
   size         String
+  energy       String
   independence String
 
   photos      Photos[]

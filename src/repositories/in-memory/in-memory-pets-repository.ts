@@ -22,6 +22,7 @@ export class InMemoryPetsRepository implements PetsRepository{
 			age: data.age,
 			size: data.size,
 			independence: data.independence,
+			energy: data.energy,
 			org_id: data.org_id
 		}
 
