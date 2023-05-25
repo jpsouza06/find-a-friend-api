@@ -1,9 +1,9 @@
-import { Requirement, Prisma } from '@prisma/client'
+import { RequirementPet, Prisma } from '@prisma/client'
 import { randomUUID } from 'crypto'
-import { RequirementRepository } from '../requirements-repository'
+import { RequirementPetRepository } from '../requirements-pet-repository'
 
-export class InMemoryRequirementRepository implements RequirementRepository{
-	public items: Requirement[] = []
+export class InMemoryRequirementPetRepository implements RequirementPetRepository{
+	public items: RequirementPet[] = []
 
 	async findManyByPetId(petId: string, page: number) {
 		return this.items
@@ -21,7 +21,7 @@ export class InMemoryRequirementRepository implements RequirementRepository{
 		return requirement
 	}
 
-	async create(data: Prisma.RequirementUncheckedCreateInput) {
+	async create(data: Prisma.RequirementPetUncheckedCreateInput) {
 		const requirement = {
 			id: data.id ?? randomUUID(),
 			requirement: data.requirement,

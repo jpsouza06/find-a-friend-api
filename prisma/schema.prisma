@@ -35,7 +35,7 @@ model Pet {
   independence String
 
   photos      Photos[]
-  requirement Requirement[]
+  requirement RequirementPet[]
 
   Org    Org    @relation(fields: [org_id], references: [id])
   org_id String
@@ -55,12 +55,12 @@ model Photos {
   @@map("photos")
 }
 
-model Requirement {
+model RequirementPet {
   id          String @id @default(uuid())
   requirement String
 
   Pet    Pet    @relation(fields: [pet_id], references: [id])
   pet_id String
 
-  @@map("requirements")
+  @@map("requirementsPet")
 }
