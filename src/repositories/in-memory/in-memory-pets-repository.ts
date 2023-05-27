@@ -15,6 +15,31 @@ export class InMemoryPetsRepository implements PetsRepository{
 		return pet
 	}
 
+	async findManyByOrg(orgId: string, page: number) {
+		return this
+			.items.filter((item) => item.org_id === orgId)
+			.slice((page - 1) * 20, page * 20)
+	}
+
+	async findManyByCharacteristics(
+		orgId: string, 
+		page: number,
+		age?: string, 
+		energy?: string, 
+		size?: string, 
+		independence?: string,
+
+	) {
+		console.log(age, size, energy, independence)
+		return this
+			.items.filter((item) => item.org_id === orgId)
+			.filter((item) =>  item.age === age)
+			.filter((item) => energy ?? item.energy === energy)
+			.filter((item) => size ?? item.size === size)
+			.filter((item) => independence ?? item.independence === independence)
+			.slice((page - 1) * 20, page * 20)
+	}
+
 	async create(data: Prisma.PetUncheckedCreateInput) {
 		const pet = {
 			id: data.id ?? randomUUID(),
