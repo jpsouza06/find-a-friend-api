@@ -7,7 +7,9 @@ interface RegisterOrgUseCaseCaseRequest {
    name: string;
    email: string;
    cep: string;
-	address: string;
+	state: string;
+	city: string;
+	street: string;
    number: string;
 	password: string;
 }
@@ -23,7 +25,9 @@ export class RegisterOrgUseCase{
 		name,
 		email,
 		cep,
-		address,
+		state,
+		city,
+		street,
 		number,
 		password,
 	}: RegisterOrgUseCaseCaseRequest): Promise<RegisterOrgUseCaseCaseResponse> {
@@ -39,7 +43,9 @@ export class RegisterOrgUseCase{
 			name,
 			email,
 			cep,
-			address,
+			state,
+			city,
+			street,
 			number,
 			password_hash
 		})

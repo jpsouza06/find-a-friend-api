@@ -24,6 +24,13 @@ export class InMemoryOrgsRepository implements OrgsRepository {
 
 		return org
 	}
+
+	async searchMany(query: string, page: number) {
+		return this.items
+			.filter(item => item..includes(query))
+			.slice((page -1 ) * 20, page * 20)
+	}
+
    
 	async create(data: Prisma.OrgCreateInput) {
 		const org = {
@@ -31,7 +38,9 @@ export class InMemoryOrgsRepository implements OrgsRepository {
 			name: data.name,
 			email: data.email,
 			cep: data.cep,
-			address: data.address,
+			state: data.state,
+			city: data.city,
+			street: data.street,
 			number: data.number,
 			password_hash: data.password_hash,
 			created_at: new Date()

@@ -15,7 +15,9 @@ model Org {
   name          String
   email         String   @unique
   cep           String
-  address       String
+  state         String
+  city          String
+  street        String
   number        String
   password_hash String
   created_at    DateTime @default(now())

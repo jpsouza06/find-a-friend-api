@@ -8,7 +8,7 @@ let orgsRepository: InMemoryOrgsRepository
 let petsRepository: InMemoryPetsRepository
 let sut: RegisterPetUseCase 
 
-describe('Register Org Use Case', () => {
+describe('Register Pet Use Case', () => {
 	beforeEach(() => {
 		orgsRepository = new InMemoryOrgsRepository()
 		petsRepository = new InMemoryPetsRepository()
@@ -19,7 +19,9 @@ describe('Register Org Use Case', () => {
 		const org = await orgsRepository.create({
 			name: 'org',
 			email: 'org@example.com',
-			address: 'addres',
+			state: 'state',
+			city: 'city',
+			street: 'street',
 			cep: '123456',
 			number: '31912345678',
 			password_hash: await hash('123456', 6),

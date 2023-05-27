@@ -17,7 +17,9 @@ describe('Register Org Use Case', () => {
 		const { org } = await sut.execute({
 			name: 'org',
 			email: 'org@example.com',
-			address: 'addres',
+			state: 'state',
+			city: 'city',
+			street: 'street',
 			cep: '123456',
 			number: '31912345678',
 			password: '123456'
@@ -30,7 +32,9 @@ describe('Register Org Use Case', () => {
 		const { org } = await sut.execute({
 			name: 'org',
 			email: 'org@example.com',
-			address: 'addres',
+			state: 'state',
+			city: 'city',
+			street: 'street',
 			cep: '123456',
 			number: '31912345678',
 			password: '123456'
@@ -50,7 +54,9 @@ describe('Register Org Use Case', () => {
 		await sut.execute({
 			name: 'org',
 			email,
-			address: 'addres',
+			state: 'state',
+			city: 'city',
+			street: 'street',
 			cep: '123456',
 			number: '31912345678',
 			password: '123456'
@@ -60,7 +66,9 @@ describe('Register Org Use Case', () => {
 			sut.execute({
 				name: 'org',
 				email,
-				address: 'addres',
+				state: 'state',
+				city: 'city',
+				street: 'street',
 				cep: '123456',
 				number: '31912345678',
 				password: '123456'
