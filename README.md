@@ -20,4 +20,4 @@ This is an API for animal adoption
 - [x] A pet must be linked to an ORG
 - [x] The user who wants to adopt will contact the ORG via WhatsApp
 - [x] All filters other than city are optional
-- [x] For an ORG to access the application as admin, it needs to be logged in
+- [] For an ORG to access the application as admin, it needs to be logged in
