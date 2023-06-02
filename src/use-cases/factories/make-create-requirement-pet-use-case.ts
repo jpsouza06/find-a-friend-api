@@ -5,7 +5,8 @@ import { CreateRequirementPetUseCase } from '../create-requirement-pet'
 export function makeCreateRequirementPetUseCase() {
 	const petsRepository = new PrismaPetsRepository()
 	const requirementRepository = new PrismaRequirementRepository()
-	const createRequirementPetUseCase = new CreateRequirementPetUseCase(petsRepository, requirementRepository)
+	const createRequirementPetUseCase = 
+		new CreateRequirementPetUseCase(petsRepository, requirementRepository)
 
 	return createRequirementPetUseCase
 }
