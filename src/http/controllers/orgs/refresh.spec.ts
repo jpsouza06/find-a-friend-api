@@ -28,7 +28,7 @@ describe('Refresh Token (e2e)', () => {
 		const authResponse = await request(app.server)
 			.post('/sessions')
 			.send({
-				email: 'johndoe@example.com',
+				email: 'org@example.com',
 				password: '123456',
 			})
 

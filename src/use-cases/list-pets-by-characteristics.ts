@@ -27,10 +27,10 @@ export class ListPetsByCharacteristicsUseCase{
 		state,
 		city,
 		page,
-		age,
-		energy,
-		size,
-		independence
+		age = undefined,
+		energy = undefined,
+		size = undefined,
+		independence = undefined
 	}: ListPetsByCharacteristicsUseCaseCaseRequest): Promise<ListPetsByCharacteristicsUseCaseCaseResponse> {
 		const orgs = await this.orgsRepository.searchManyByCity(state, city)
 

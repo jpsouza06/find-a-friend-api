@@ -4,12 +4,12 @@ import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
 
 export async function authenticate(request: FastifyRequest, reply: FastifyReply) {
-	const registerBodySchema = z.object({
+	const authenticateUserBodySchema = z.object({
 		email: z.string().email(),
 		password: z.string().min(6),
 	})
 
-	const { email, password } = registerBodySchema.parse(request.body)
+	const { email, password } = authenticateUserBodySchema.parse(request.body)
 
 	try {
 		const authenticateUseCase = makeAuthenticateUseCase()
@@ -19,7 +19,6 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
 		})
 
 		const token = await reply.jwtSign(
-			{},
 			{
 				sign: {
 					sub: org.id
@@ -27,7 +26,6 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
 			})
 
 		const refreshToken = await reply.jwtSign(
-			{},
 			{
 				sign: {
 					sub: org.id,

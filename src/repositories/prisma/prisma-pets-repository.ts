@@ -33,21 +33,14 @@ export class PrismaPetsRepository implements PetsRepository {
 		size?: string | undefined, 
 		independence?: string | undefined
 	) {
+		console.log(age)
 		const pets = await prisma.pet.findMany({
 			where: {
 				org_id: orgId,
-				age : {
-					contains: age,
-				},
-				energy : {
-					contains: energy,
-				},
-				size : {
-					contains: size,
-				},
-				independence : {
-					contains: independence,
-				}
+				...(age && {age : { contains: age}}),
+				...(energy && {energy : { contains: energy}}),
+				...(size && {size : { contains: size}}),
+				...(independence && {independence : { contains: independence}})
 			},
 			take: 20,
 			skip: (page - 1) * 20

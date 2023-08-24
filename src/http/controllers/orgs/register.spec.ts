@@ -22,9 +22,9 @@ describe('Register (e2e)', () => {
 				street: 'street',
 				cep: '123456',
 				number: '31912345678',
-				password: '123456'
+				password: '123456',
 			})
-		console.log(response.body)
+
 		expect(response.statusCode).toEqual(201)
 	})
 })

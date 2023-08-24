@@ -22,7 +22,7 @@ describe('Register Org Use Case', () => {
 			street: 'street',
 			cep: '123456',
 			number: '31912345678',
-			password: '123456'
+			password: '123456',
 		})
 
 		expect(org.name).toEqual('org')

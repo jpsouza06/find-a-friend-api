@@ -30,13 +30,13 @@ export class InMemoryPetsRepository implements PetsRepository{
 		independence?: string,
 
 	) {
-		console.log(age, size, energy, independence)
+		console.log(age)
 		return this
 			.items.filter((item) => item.org_id === orgId)
-			.filter((item) =>  item.age === age)
-			.filter((item) => energy ?? item.energy === energy)
-			.filter((item) => size ?? item.size === size)
-			.filter((item) => independence ?? item.independence === independence)
+			.filter((item) =>  age ? item.age === age : true)
+			.filter((item) => energy ? item.energy === energy : true)
+			.filter((item) => size ? item.size === size : true)
+			.filter((item) => independence ? item.independence === independence : true)
 			.slice((page - 1) * 20, page * 20)
 	}
 
