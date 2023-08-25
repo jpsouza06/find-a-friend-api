@@ -28,19 +28,19 @@ export class PrismaPetsRepository implements PetsRepository {
 	async findManyByCharacteristics(
 		orgId: string,
 		page: number, 
-		age?: string | undefined, 
-		energy?: string | undefined, 
-		size?: string | undefined, 
-		independence?: string | undefined
+		age?: string, 
+		energy?: string, 
+		size?: string, 
+		independence?: string
 	) {
-		console.log(age)
+
 		const pets = await prisma.pet.findMany({
 			where: {
 				org_id: orgId,
-				...(age && {age : { contains: age}}),
-				...(energy && {energy : { contains: energy}}),
-				...(size && {size : { contains: size}}),
-				...(independence && {independence : { contains: independence}})
+				...(age && { age: { contains: age } }),
+				...(energy && { energy: { contains: energy } }),
+				...(size && { size: { contains: size } }),
+				...(independence && { independence: { contains: independence } })
 			},
 			take: 20,
 			skip: (page - 1) * 20
